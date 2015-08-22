@@ -1,0 +1,46 @@
+% --- レポート用Tex設定ファイル ---
+% 
+\ifx\Option\undefined
+  \def\Option{}
+\fi
+\documentclass[\Option]{ltjsarticle}
+\renewcommand{\headfont}{\bfseries}
+
+% パッケージ読み込み
+\usepackage[pdftex]{graphicx}
+\usepackage{wrapfig, amssymb}
+\usepackage[style=numeric,backend=biber]{biblatex}
+\usepackage{hyperref}
+
+% 行数と各行の文字数、余白。
+\usepackage[text={180mm,257mm},centering]{geometry}
+
+% 表題の余白。
+%\abovecaptionskip=0pt
+%\belowcaptionskip=0pt
+
+% 共通ファイル読み込み
+\input{mytex.tex}
+
+
+% 各種ヘッダ。
+\def\Header{
+\begin{document}
+\begin{center}
+ \textbf{\Large \Title}
+\end{center}
+\begin{flushright}
+ \Author
+\end{flushright}
+}
+\def\HeaderPage{
+\begin{document}
+\vspace*{20\zw}
+\begin{center}
+\textbf{\Huge \Title} \vspace{2\zw} \\
+{\Large \Author}
+\end{center}
+\newpage
+}
+
+\renewcommand{\em}[1]{\textbf{#1}}

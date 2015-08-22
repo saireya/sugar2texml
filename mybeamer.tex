@@ -1,0 +1,42 @@
+% --- Beamer用共通Tex設定ファイル ---
+
+% パッケージ読み込み
+\usepackage{luatexja, multirow, alltt, wrapfig}
+\usepackage[style=numeric,backend=biber]{biblatex}
+
+% フォントをsans-serifに。
+\renewcommand{\kanjifamilydefault}{\gtdefault}
+% ツールバーを非表示に。
+\setbeamertemplate{navigation symbols}{}
+% ブロックの影をなくす(と境界が分からなくなる)。
+% \setbeamertemplate{blocks}[rounded][shadow=false]
+% フレームヘッダの背景、通常ブロックの背景を灰色に。
+\definecolor{gray}{cmyk}{.2,.2,.2,.8}
+% structureを変更すると、強調色まで灰色になる。
+% \setbeamercolor{structure}{fg=gray}
+\setbeamercolor{frametitle}{ bg=gray, fg=white}
+\setbeamercolor{block title}{bg=gray, fg=white}
+% ブロックの背景色を薄める。
+\setbeamercolor{block body}{bg=gray!02!white}
+\setbeamercolor{block body alerted}{bg=red!02!white}
+\setbeamercolor{block body example}{bg=green!02!white}
+% 青背景版
+% \setbeamercolor{block body}{bg=blue!02!white}
+
+% 箇条書きアイテムマーカーを四角に変更
+\setbeamertemplate{items}[circle]
+
+% 表題の余白。
+\abovecaptionskip=1pt
+\belowcaptionskip=1pt
+
+% 基本情報。
+\title{\Title}
+\author{\Author}
+\date{}
+
+% 共通ファイル読み込み
+\input{mytex.tex}
+
+% Beamerでもemで強調できるように。
+\renewcommand{\em}[1]{\structure{#1}}

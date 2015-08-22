@@ -1,0 +1,27 @@
+% --- ポスター用Tex設定ファイル ---
+\documentclass[mathserif,xcolor={table}]{beamer}
+
+% パッケージ読み込み
+\usepackage[orientation=portrait,size=a0,scale=1.4]{beamerposter}
+
+% デザイン設定
+\usetheme{Berlin}
+% フッタを非表示に。
+\setbeamertemplate{footline}{}
+% ヘッダを非表示に。
+\setbeamertemplate{headline}{}
+
+% 共通ファイル読み込み
+\input{mybeamer.tex}
+
+% 各種ヘッダ。
+\def\Header{
+\begin{document}
+\begin{frame}[t]
+
+\begin{block}{\veryHuge \centerline{\Title}}
+\begin{flushright}
+{\Large \Author}
+\end{flushright}
+\end{block}
+}

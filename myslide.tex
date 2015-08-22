@@ -1,0 +1,21 @@
+% --- スライド用Tex設定ファイル ---
+\documentclass[mathserif,xcolor={table}]{beamer}
+
+% パッケージ読み込み
+\usepackage{luatexja}
+
+% デザイン設定
+\usetheme{Madrid}
+% フッタを簡素化。
+\setbeamertemplate{footline}[page number]
+
+% 共通ファイル読み込み
+\input{mybeamer.tex}
+
+% 各種ヘッダ。
+\def\Header{
+\begin{document}
+\begin{frame}
+\titlepage
+\end{frame}
+}

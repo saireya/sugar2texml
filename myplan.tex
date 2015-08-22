@@ -1,0 +1,39 @@
+\documentclass[a4paper]{ltjsarticle}
+\def\Author{}
+
+% 行数と各行の文字数、余白。
+\usepackage[text={180mm,277mm},centering]{geometry}
+
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\input{mytex.tex}
+% 指導案では表の枠線を黒に戻す。
+\arrayrulecolor{black}
+
+% 二段目のenumerate環境での番号表示を(1)の形式に変更。
+\renewcommand{\theenumii}{\arabic{enumii}}
+\renewcommand{\labelenumii}{(\theenumii)}
+
+% 板書。
+\definecolor{bbback}{rgb}{.95, 1, 1}
+\definecolor{bbbord}{rgb}{0, .5, 0}
+\newcommand{\widc}{345px}
+\newcommand{\widn}{ 95px}
+%\newcommand{\bb}[1]{\\ \fcolorbox{bbbord}{bbback}{\parbox{\widc}{#1}} \\}
+\newcommand{\bb}[1]{\fbox{\parbox{\widc}{#1}} \\}
+\newcommand{\mainbox}[2]{\parbox{#1}{#2}\vspace{3px}}
+%\newcommand{\ask}{\textcolor{blue}{$\rightarrow$ 指名}}
+\newcommand{\ask}{$\rightarrow$ 指名}
+\newcommand{\alert}[1]{\textbf{#1}}
+
+%\newcommand{\thisclass}[1]{\textcolor{blue}{#1}}
+\newcommand{\thisclass}[1]{\underline{#1}}
+
+
+\def\Header{
+\begin{document}
+\begin{center}
+\Title
+\end{center}
+}

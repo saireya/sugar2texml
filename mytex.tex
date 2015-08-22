@@ -1,0 +1,116 @@
+% --- 共通TeX設定ファイル ---
+
+% 基本情報
+\title{\Title}
+\author{\Author}
+
+% align環境。
+\usepackage{amsmath}
+
+% 数式にOpenTypeフォントを使用。
+\usepackage{unicode-math}
+\unimathsetup{math-style=ISO,bold-style=ISO}
+\setmathfont{XITS Math}
+
+% PDFの各種設定。
+\hypersetup{pdfencoding=auto,unicode=true,pdftitle={\Title},pdfauthor={\Author},pdfcreator=,bookmarksopen,bookmarksnumbered}
+
+% MathJaxと共通のマクロを読み込み。
+\renewcommand{\rm}[1]{\mathrm{#1}}
+\input{mymacro.tex}
+
+% ルビ。
+\newcommand{\ruby}[2]{%
+\leavevmode
+\setbox0=\hbox{#1}%
+\setbox1=\hbox{\tiny #2}%
+\ifdim\wd0>\wd1 \dimen0=\wd0 \else \dimen0=\wd1 \fi
+\hbox{%
+\ltjsetparameter{kanjiskip=0pt plus 2fil, xkanjiskip=0pt plus 2fil}
+\vbox{%
+\hbox to \dimen0{%
+\tiny \hfil#2\hfil}%
+\nointerlineskip
+\hbox to \dimen0{\mathstrut\hfil#1\hfil}}}}
+
+% 脚注。
+\newcommand{\fn}[1]{\footnote{#1}}
+\newcommand{\ft}[2][\value{footnote}]{\footnotetext[#1]{#2}}
+\newcommand{\fm}{\footnotemark}
+
+% 場合分け。
+\newenvironment{casesproof}
+{
+  \renewcommand{\labelenumi}{[\arabic{enumi}]}
+  \begin{enumerate}
+}{
+  \end{enumerate}
+}
+
+% multicols内ではtable,figureを直接使えない。
+\makeatletter
+\newenvironment{tablehere} {\def\@captype{table}}{}
+\newenvironment{figurehere}{\def\@captype{figure}}{}
+\makeatother
+
+% csv
+\usepackage[table]{xcolor}
+\usepackage{alltt, longtable, multicol, csvsimple, colortbl}
+\PassOptionsToPackage{table}{xcolor}
+
+% 表に関する色。偶数行の色変更はtabularタグの設定で行っている。
+\definecolor{lightpurple}{rgb}{1,0.8,1}
+\definecolor{morepurple}{rgb}{0.8,0,0.8}
+% 表の線の色を変更。
+\arrayrulecolor{morepurple}
+
+% listings
+\usepackage{lstlinebgrd}
+
+% コード表示部の設定。
+\definecolor{darkblue} {rgb}{0.0,  0.0,  0.6}
+\definecolor{deeppink} {rgb}{1.0,  0.07, 0.57}
+\definecolor{deepgreen}{rgb}{0.0,  0.5,  0.0}
+\definecolor{lightgray}{rgb}{0.96, 0.96, 0.96}
+\definecolor{silver}   {rgb}{0.68, 0.68, 0.68}
+\lstset{
+	frame=single,
+	stepnumber=1,
+	tabsize=4,
+	keepspaces=true,
+	numbers=left,
+	numbersep=5pt,
+	numberstyle =\scriptsize\color{silver}\sffamily,
+	basicstyle  =\scriptsize\ttfamily\gtfamily\sffamily,
+	stringstyle =\color{blue},
+	keywordstyle=\color{deeppink},
+	commentstyle=\tiny\color{deepgreen},
+	lineskip=-0.3\zw,
+	columns=[l]{fullflexible},
+	breaklines=true,
+	showstringspaces=false,
+	linebackgroundcolor={\ifodd\value{lstnumber}\color{lightgray}\fi}
+}
+\lstalias{log}{}
+\lstalias{m}{octave}
+\lstalias{pde}{java}
+\lstalias{py}{python}
+\lstalias{rb}{ruby}
+\lstalias{scm}{lisp}
+\lstalias{txt}{}
+\lstdefinelanguage{XML}{
+	morestring=[b]",
+	morestring=[s]{>}{<},
+	morecomment=[s]{<?}{?>},
+	morekeywords={xmlns,version,type},
+	identifierstyle=\color{darkblue},
+}
+\lstdefinelanguage{diff}{
+	morecomment=[f][\color{blue}]{@@},     % group identifier
+	morecomment=[f][\color{red}]-,         % deleted lines 
+	morecomment=[f][\color{blue}]+,        % added lines
+	morecomment=[f][\color{magenta}]{---}, % Diff header lines (must appear after +,-)
+	morecomment=[f][\color{magenta}]{+++},
+}
+
+

@@ -1,0 +1,57 @@
+% --- 共通TeXマクロファイル ---
+% \[
+
+% 集合。
+\newcommand{\mbb}[1]{\mathbb{#1}}
+\newcommand{\N}{\mbb{N}}
+\newcommand{\Z}{\mbb{Z}}
+\newcommand{\Q}{\mbb{Q}}
+\newcommand{\R}{\mbb{R}}
+\renewcommand{\C}{\mbb{C}}
+\newcommand{\num}[1]{{{}^\#{#1}}}
+
+% 量化記号。
+\newcommand{\A }{{}^\forall}
+\newcommand{\E }{{}^\exists}
+\newcommand{\EI}{{}^{\exists1}}
+
+% 矢印記号。
+\newcommand{\Rarrow }{\to}
+\newcommand{\rarrow }{\Longrightarrow}
+\newcommand{\Lrarrow}{\longleftrightarrow}
+\newcommand{\darrow }{\overset{\mathrm{def}}{\lrarrow}}
+
+% 関数
+\newcommand{\tr    }{\rm{tr}}
+\newcommand{\sgn   }{\rm{sgn}}
+\newcommand{\Arcsin}{\rm{Arcsin}}
+\newcommand{\Arccos}{\rm{Arccos}}
+\newcommand{\Arctan}{\rm{Arctan}}
+\newcommand{\Int}{\int\hspace{-5.5pt}}
+\newcommand{\argmax}{\mathop{\rm{arg~max}}\limits}
+\newcommand{\argmin}{\mathop{\rm{arg~min}}\limits}
+
+% ベクトル。
+\newcommand{\V}[1]{\mathbfit{#1}}
+\newcommand{\diag}{\mathop{\oplus}}
+\newcommand{\Diag}{\rm{diag}}
+\newcommand{\rank}{\rm{rank}}
+\newcommand{\Tr}[1]{{}^t#1}
+
+% 場合の数。
+\newcommand{\twocmd}[3]{{}_{#1} \mathrm{#3}_{#2}}
+\newcommand{\p}[2]{\twocmd{#1}{#2}{P}}
+\newcommand{\h}[2]{\twocmd{#1}{#2}{H}}
+\renewcommand{\c}[2]{\twocmd{#1}{#2}{C}}
+
+% Boolean
+\renewcommand{\and}{\wedge}
+\renewcommand{\not}{\hspace{1pt}\overline}
+\newcommand{\nor}{\hspace{1pt}\bar{\vee}\hspace{1pt}}
+\newcommand{\nand}{\hspace{1pt}\bar{\and}\hspace{1pt}}
+\newcommand{\xor}{\oplus}
+
+% 丸囲み数字
+\newcommand{\numcirc}[1]{\textcircled{\scriptsize #1}}
+
+% \]
