@@ -44,3 +44,6 @@
 }
 
 \renewcommand{\em}[1]{\textbf{#1}}
+\ifx\alert\undefined
+  \newcommand{\alert}[1]{\textbf{#1}}
+\fi
