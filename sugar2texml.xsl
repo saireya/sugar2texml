@@ -250,7 +250,7 @@
        <!-- 標準のcsvsimpleでは、先頭行がなぜか表示されない。
        \csvreader[tabular=<xsl:value-of select="@align"/>]{<xsl:value-of select="@src"/>}{}{\csvlinetotablerow}&#10;
        -->
-       <cmd name="csvloop"><parm>bautotabular=<parm><xsl:value-of select="@src"/></parm><parm><xsl:value-of select="@align"/></parm></parm></cmd>
+       <cmd name="csvloop"><parm>bautotabular={<xsl:value-of select="@src"/>}{<xsl:value-of select="@align"/>}</parm></cmd>
       </xsl:when>
       <xsl:otherwise>
        <env name="tabular" nl2="1" nl4="1"><parm><xsl:value-of select="@align"/></parm><xsl:apply-templates/></env>
