@@ -114,6 +114,9 @@
 
  <xsl:template match="multicols">
   <xsl:choose>
+   <xsl:when test="@flex">
+    <env name="multicols" nl4="1"><parm><xsl:value-of select="count(*)"/></parm><xsl:apply-templates/></env>
+   </xsl:when>
    <xsl:when test="@num">
     <env name="multicols" nl4="1"><parm><xsl:value-of select="@num"/></parm><xsl:apply-templates/></env>
    </xsl:when>
