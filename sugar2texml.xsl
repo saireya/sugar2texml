@@ -109,6 +109,10 @@
   <xsl:apply-templates/>
  </xsl:template>
 
+ <xsl:template match="aside">
+  <env name="tcolorbox" nl4="1"><opt>title=<xsl:value-of select="@h"/></opt><xsl:apply-templates/></env>
+ </xsl:template>
+
  <!-- layout -->
  <xsl:template match="hr"><cmd name="newpage" gr="0" nl2="1"/></xsl:template>
 
