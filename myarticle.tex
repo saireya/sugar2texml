@@ -25,6 +25,14 @@
 % xcolorはtcolorboxより先に読み込まないとエラーになる
 \usepackage{tcolorbox}
 
+% tcolorbox内でも段落のインデントを有効にする
+% http://tex.stackexchange.com/questions/250165/normal-body-text-within-tcolorbox
+\newlength{\normalparindent}
+\AtBeginDocument{\setlength{\normalparindent}{\parindent}}
+\tcbset{before upper={\setlength{\parindent}{\normalparindent}}}
+% ページを跨ぐboxへの対応
+\tcbuselibrary{breakable}
+
 % 各種ヘッダ。
 \def\Header{
 \begin{document}
