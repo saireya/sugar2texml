@@ -8,7 +8,7 @@
 
 % パッケージ読み込み
 \usepackage[pdftex]{graphicx}
-\usepackage{wrapfig, amssymb,tcolorbox}
+\usepackage{wrapfig, amssymb}
 \usepackage[style=numeric,backend=biber]{biblatex}
 \usepackage{hyperref}
 
@@ -22,6 +22,8 @@
 % 共通ファイル読み込み
 \input{mytex.tex}
 
+% xcolorはtcolorboxより先に読み込まないとエラーになる
+\usepackage{tcolorbox}
 
 % 各種ヘッダ。
 \def\Header{
