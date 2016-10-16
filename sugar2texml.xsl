@@ -110,7 +110,7 @@
  </xsl:template>
 
  <xsl:template match="aside">
-  <env name="tcolorbox" nl4="1"><opt>breakable,title=<xsl:value-of select="@h"/></opt><xsl:apply-templates/></env>
+  <env name="tcolorbox" nl4="1"><opt>breakable,title=Info: <xsl:value-of select="@h"/></opt><xsl:apply-templates/></env>
  </xsl:template>
 
  <!-- layout -->
