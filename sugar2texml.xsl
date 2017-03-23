@@ -148,7 +148,11 @@
  <xsl:template match="samp"><env name="alltt" nl4="1"><xsl:apply-templates/></env></xsl:template>
 
  <!-- text decoration -->
- <xsl:template match="p"><cmd name="par" gr="0"/><xsl:apply-templates/></xsl:template>
+ <xsl:template match="p">
+  <cmd name="par" gr="0"/>
+  <xsl:if test="/log/@slide"><cmd name="quad" gr="0"/></xsl:if>
+  <xsl:apply-templates/>
+ </xsl:template>
  <xsl:template match="br"><ctrl ch="\"/></xsl:template>
 
  <xsl:template match="em"  ><cmd name="em"  ><parm><xsl:apply-templates/></parm></cmd></xsl:template>
