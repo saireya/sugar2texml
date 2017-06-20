@@ -173,7 +173,7 @@
   <xsl:choose>
    <xsl:when test="starts-with(@href,'doi:')">
     <cmd name="href">
-     <parm>http://dx.doi.org/<xsl:value-of select="substring-after(@href,':')"/></parm>
+     <parm>http://doi.org/<xsl:value-of select="substring-after(@href,':')"/></parm>
      <parm><xsl:value-of select="@href"/></parm>
     </cmd>
    </xsl:when>
