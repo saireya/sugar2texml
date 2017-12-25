@@ -337,6 +337,19 @@
   </env>
  </xsl:template>
  <xsl:template match="alert"><cmd name="alert"><parm><xsl:apply-templates/></parm></cmd></xsl:template>
+ <xsl:template match="dfn">
+  <cmd name="alert"><parm><xsl:apply-templates/></parm></cmd>
+  <xsl:if test="@abbr">
+   <xsl:text>(</xsl:text>
+   <cmd name="alert"><parm><xsl:value-of select="@abbr"/></parm></cmd>
+   <xsl:text>)</xsl:text>
+  </xsl:if>
+  <xsl:if test="@en">
+   <xsl:text>(</xsl:text>
+   <cmd name="alert"><parm><xsl:value-of select="@en"/></parm></cmd>
+   <xsl:text>)</xsl:text>
+  </xsl:if>
+ </xsl:template>
 
  <!-- plan -->
  <xsl:template match="plantable">
