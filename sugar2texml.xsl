@@ -218,6 +218,9 @@
  <xsl:template match="r"   ><cmd name="ref"  ><parm><xsl:value-of select="@n"/></parm></cmd></xsl:template>
  <xsl:template match="cite"><cmd name="cite" ><parm><xsl:value-of select="@id"/></parm></cmd></xsl:template>
  <xsl:template match="blockquote"><env name="quotation" nl4="1"><xsl:apply-templates/></env></xsl:template>
+ <xsl:template match="q">
+  <xsl:text>「</xsl:text><xsl:apply-templates /><xsl:text>」</xsl:text>
+ </xsl:template>
 
  <!-- tabular -->
  <xsl:template match="hl"><cmd name="hline" gr="0"/></xsl:template>
@@ -338,24 +341,30 @@
  </xsl:template>
  <xsl:template match="alert | strong"><cmd name="alert"><parm><xsl:apply-templates/></parm></cmd></xsl:template>
  <xsl:template match="dfn">
-  <xsl:choose>
-   <xsl:when test="@strong=0"><xsl:apply-templates/></xsl:when>
-   <xsl:otherwise><cmd name="alert"><parm><xsl:apply-templates/></parm></cmd></xsl:otherwise>
-  </xsl:choose>
+  <xsl:variable name="env">
+   <xsl:choose>
+    <xsl:when test="@strong=0">em</xsl:when>
+    <xsl:otherwise>alert</xsl:otherwise>
+   </xsl:choose>
+  </xsl:variable>
+  <cmd>
+   <xsl:attribute name="name"><xsl:value-of select="$env"/></xsl:attribute>
+   <parm><xsl:apply-templates/></parm>
+  </cmd>
   <xsl:if test="@abbr">
    <xsl:text>(</xsl:text>
-   <xsl:choose>
-    <xsl:when test="@strong=0"><xsl:value-of select="@abbr"/></xsl:when>
-    <xsl:otherwise><cmd name="alert"><parm><xsl:value-of select="@abbr"/></parm></cmd></xsl:otherwise>
-   </xsl:choose>
+   <cmd>
+    <xsl:attribute name="name"><xsl:value-of select="$env"/></xsl:attribute>
+    <parm><xsl:value-of select="@abbr"/></parm>
+   </cmd>
    <xsl:text>)</xsl:text>
   </xsl:if>
   <xsl:if test="@en">
    <xsl:text>(</xsl:text>
-   <xsl:choose>
-    <xsl:when test="@strong=0"><xsl:value-of select="@en"/></xsl:when>
-    <xsl:otherwise><cmd name="alert"><parm><xsl:value-of select="@en"/></parm></cmd></xsl:otherwise>
-   </xsl:choose>
+   <cmd>
+    <xsl:attribute name="name"><xsl:value-of select="$env"/></xsl:attribute>
+    <parm><xsl:value-of select="@en"/></parm>
+   </cmd>
    <xsl:text>)</xsl:text>
   </xsl:if>
  </xsl:template>
