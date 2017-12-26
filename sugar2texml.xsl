@@ -336,17 +336,26 @@
    <xsl:apply-templates/>
   </env>
  </xsl:template>
- <xsl:template match="alert"><cmd name="alert"><parm><xsl:apply-templates/></parm></cmd></xsl:template>
+ <xsl:template match="alert | strong"><cmd name="alert"><parm><xsl:apply-templates/></parm></cmd></xsl:template>
  <xsl:template match="dfn">
-  <cmd name="alert"><parm><xsl:apply-templates/></parm></cmd>
+  <xsl:choose>
+   <xsl:when test="@strong=0"><xsl:apply-templates/></xsl:when>
+   <xsl:otherwise><cmd name="alert"><parm><xsl:apply-templates/></parm></cmd></xsl:otherwise>
+  </xsl:choose>
   <xsl:if test="@abbr">
    <xsl:text>(</xsl:text>
-   <cmd name="alert"><parm><xsl:value-of select="@abbr"/></parm></cmd>
+   <xsl:choose>
+    <xsl:when test="@strong=0"><xsl:value-of select="@abbr"/></xsl:when>
+    <xsl:otherwise><cmd name="alert"><parm><xsl:value-of select="@abbr"/></parm></cmd></xsl:otherwise>
+   </xsl:choose>
    <xsl:text>)</xsl:text>
   </xsl:if>
   <xsl:if test="@en">
    <xsl:text>(</xsl:text>
-   <cmd name="alert"><parm><xsl:value-of select="@en"/></parm></cmd>
+   <xsl:choose>
+    <xsl:when test="@strong=0"><xsl:value-of select="@en"/></xsl:when>
+    <xsl:otherwise><cmd name="alert"><parm><xsl:value-of select="@en"/></parm></cmd></xsl:otherwise>
+   </xsl:choose>
    <xsl:text>)</xsl:text>
   </xsl:if>
  </xsl:template>
