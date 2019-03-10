@@ -1,16 +1,14 @@
 % http://sourceforge.jp/projects/luatex-ja/wiki/LuaTeX-ja%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9
-\usepackage{luatexja-fontspec}
-\defaultjfontfeatures{Scale=0.92487}
+\usepackage[match,deluxe,expert,bold,noto-otf]{luatexja-preset}
 
 % Beamerではこれだけでは不十分?
-\setmainjfont[BoldFont=VLGothic]{IPAexMincho}
-\setsansjfont{VLGothic}
-
-%\setmainfont{Noto Sans}
-%\setmonofont{Noto Mono}
-%\setmainjfont[BoldFont=Noto Sans CJK JP]{IPAexMincho}
-%\setsansjfont[
-%	AutoFakeSlant=0.2,
-%	SlantedFeatures={FakeSlant=0.2},
-%	BoldItalicFeatures={FakeSlant=0.2},
-%	BoldSlantedFeatures={FakeSlant=0.2}]{Noto Sans CJK JP}
+\setmainfont[BoldFont=Noto Sans CJK JP Medium]{Noto Serif CJK JP}
+\setmonofont{Noto Mono}
+\setmainjfont[BoldFont=Noto Sans CJK JP Medium]{Noto Serif CJK JP}
+\setsansjfont[
+	AutoFakeSlant=0.2,
+	SlantedFeatures={FakeSlant=0.2},
+	BoldItalicFeatures={FakeSlant=0.2},
+	BoldSlantedFeatures={FakeSlant=0.2}]
+	{Noto Sans CJK JP}
+%	{VLGothic} % Sans-SerifはVLGothicの方が綺麗
